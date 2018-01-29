@@ -24,20 +24,14 @@ sigma = zeros(1, size(X, 2));
 %               each feature. 
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
-%       
+%
 
-
-for iter =1:size(X,1)
-  for i =1:size(X,2)
-    mu(1,i)=mean(X(:,i));
-    sigma(1,i)=std(X(:,i));
-    X_norm(iter,i)=(X(iter,1)-mu(1,1))/sigma(1,1);
-  end
-  
+% updated with higher vectorized Implementation
+mu=mean(X);
+sigma=std(X);       
+for iter=1:size(X,2)
+  X_norm(:,iter)=(X(:,iter)-mu(1,iter))/sigma(1,iter);
 end
-
-
-
 
 
 % ============================================================
